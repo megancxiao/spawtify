@@ -114,7 +114,7 @@ module.exports.spotifyCallback = function (req, res) {
                     liveness: liveness / data.body.audio_features.length
                 };
                 req.session.obj = obj;
-                res.redirect('/musicScape');
+                res.redirect('/spawtify');
             });
         });
         req.session.user = data.body.id.length > 10? data.body.display_name : data.body.id;
