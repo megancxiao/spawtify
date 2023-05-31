@@ -388,10 +388,17 @@
     box.style.alignItems = 'center';
     box.style.backgroundColor = color(valenceColor);
 
-    const elementsWithFurColor = document.querySelectorAll('.head, .body, .paw, .tail-segment');
-    elementsWithFurColor.forEach((element) => {
-        element.style.backgroundColor = color(furColors);
-    });
+    var head = document.getElementById("head");
+    head.style.backgroundColor = color(furColors);
+
+    var ears = document.getElementById("ears");
+    ears.style.backgroundColor = color(furColors);
+
+    var body = document.getElementById("body");
+    body.style.backgroundColor = color(furColors);
+
+    var tail = document.getElementById("tail");
+    tail.style.backgroundColor = color(furColors);
 
   }
 </script>
