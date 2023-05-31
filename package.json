@@ -1,11 +1,14 @@
 {
   "name": "three",
   "version": "0.0.0",
+  "homepage": "https://megancxiao.github.io/spawtify",
   "private": true,
   "scripts": {
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "predeploy" : "npm run build",
+    "deploy" : "gh-pages -d build",
     "body-parser": "~1.18.2",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
@@ -16,5 +19,8 @@
     "querystring": "^0.2.0",
     "serve-favicon": "~2.4.5",
     "spotify-web-api-node": "^2.5.0"
+  },
+  "devDependencies": {
+    "gh-pages": "^5.0.0"
   }
 }

@@ -27,7 +27,7 @@ router.get('/spawtify', function(req, res, next) {
 
 });
 
-router.get('/spotifycallback', function(req, res) {
+router.get('/callback', function(req, res) {
 spotifyController.spotifyCallback(req, res)
 });
 
