@@ -18,7 +18,7 @@ router.get('/spawtify', function(req, res, next) {
   var landscapeSize = req.session.timeDiff;
   // this is userName
   var user = req.session.user;
-  res.render('visualisation', {
+  res.render('visualization', {
     title: 'spawtify',
     d: obj,
     t: landscapeSize,

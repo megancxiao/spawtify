@@ -30,9 +30,9 @@ html, body {
 }
 
 .t3 {
-  font-family: 'Work Sans', sans-serif;
+  font-family: 'Roboto Mono', sans-serif;
   text-align: center;
-  font-size: 2em;
+  font-size: 1.5em;
   background-color: #d1d1d1;
   border: none;
   color: white;
@@ -40,6 +40,7 @@ html, body {
   display: inline-block;
   outline: none;
   cursor: pointer;
+  border-radius: 8px;
 }
 
 .t3:hover {
@@ -47,20 +48,23 @@ html, body {
 }
 
 .t4 {
-  font-family: 'Work Sans', sans-serif;
+  font-family: 'Schoolbell', sans-serif;
   text-align: center;
   line-height: 100px;
   margin-top: 5vh;
-  color: #a0a0a0;
-  font-size: 3em;
+  background: linear-gradient(to left, #ef5350 10%, #f48fb1 20%, #7e57c2 30%, #2196f3 40%, #26c6da 50%, #43a047 60%, #eeff41 70%, #f9a825 80%, #ff5722 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  font-size: 3.5em;
 }
 
 .t5 {
-  font-family: 'Work Sans', sans-serif;
+  font-family: 'Roboto Mono', sans-serif;
   text-align: center;
   margin-top: 1vh;
   margin-bottom: 5vh;
-  color: #a0a0a0;
+  color: black;
   font-size: 1.5em;
 }
 
