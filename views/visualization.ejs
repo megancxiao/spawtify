@@ -73,9 +73,9 @@
     </a><a>'s spawtify</a>
     <span class="tooltiptext">
       <p>The <b>backgound</b> of your musicScape is a <a id="valenceColorType"></a> color because you've recently listened to music that relates to <b id="valenceString"></b> emotions.</p>
-      <p>Your cat's <b id="eyes"></b> are a <a id="modeType"></a> color (<a id="modeColor"></a>) because your recent music is mostly in <b id="mode"></b> mode.</p>
-      <p>Your cat is <a id="energy"></a> sleepy because you've listened to <b><a id="energy1"></a> energetic</b> songs.</p>
-      <p>You've been <b><a id="listener"></a> listener</b> during the past 24 hours, so your cat has <a id="numToys"></a> toy.</p>
+      <p>Your cat's <b>eyes</b> are a <a id="modeType"></a> color because your recent music is mostly in <b id="mode"></b> mode.</p>
+      <p>Your cat is <b><a id="energy"></a> sleepy</b> because you've listened to <b><a id="energy1"></a> energetic</b> songs.</p>
+      <p>You've been <b><a id="listener"></a> listener</b> during the past 24 hours, so your cat has <a id="numToys"></a> toy(s).</p>
       <p>The cat's <b>fur</b> are tones of <a id="keyColor"></a> because your songs are mostly in the <b>key</b> <a id="keyName"><a>.</p>
     </span>
   </div>
@@ -89,11 +89,11 @@
       width: 100%;
       align-items : center;
     } */
-    .cat * {
+    /* .cat * {
       text-align: center;
       margin-left: auto;
       margin-right: auto;
-    }
+    } */
     .cat, .ears, .eyes, .muzzle, .body, .paw, .tail, .tail-segment {position: relative;}
     /* .head, .body, .paw, .tail-segment {background-color: #000000;} */
     .left {float: left;}
@@ -102,13 +102,13 @@
       margin-top: 50px;
       animation: purr 5s infinite cubic-bezier(0,.75,1,.25);
     }
-    .head {
+    /* .head {
       width: 100px;
       height: 90px;
       border-radius: 50%;
       z-index: 100;
       animation: head-bob 5s infinite ease-in-out;
-    }
+    } */
     .ears {
       top: -20px;
       z-index: -100;
@@ -320,10 +320,14 @@
       // Major mode --- warmer toned
       modeType = "warmer-toned";
       modeColor = musicHues[(Math.floor(Math.random() * (7 - 4 + 1)) + 4)];
+      document.getElementById("modeType").innerText = modeType;
+      document.getElementById("mode").innerText = "major";
     } else if (mode == 0) {
       // Minor mode --- cooler toned
       modeType = "cooler-toned";
       modeColor = musicHues[(Math.floor(Math.random() * (3 - 0 + 1)) + 0)];
+      document.getElementById("modeType").innerText = modeType;
+      document.getElementById("mode").innerText = "minor";
     }
 
     // FOR THE TOOLTIP
@@ -374,13 +378,6 @@
     }
 
     // Background
-    // var box = document.getElementById("box");
-    // box.style.display = 'block';
-    // box.style.height = '100%';
-    // box.style.width = '100%';
-    // box.style.alignItems = 'center';
-    // box.style.backgroundColor = color(valenceColor);
-
     var box = document.getElementById("box");
     box.style.display = 'block';
     box.style.height = '100%';
@@ -390,6 +387,11 @@
 
     var head = document.getElementById("head");
     head.style.backgroundColor = color(furColors);
+    head.style. width = '100px';
+    head.style.height = '90px';
+    head.style.borderRadius = '50%';
+    head.style.zIndex = '100';
+    head.style.animation = 'head-bob 5s infinite ease-in-out';
 
     var ears = document.getElementById("ears");
     ears.style.backgroundColor = color(furColors);
