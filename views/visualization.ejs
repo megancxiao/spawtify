@@ -374,12 +374,25 @@
     }
 
     // Background
+    // var box = document.getElementById("box");
+    // box.style.display = 'block';
+    // box.style.height = '100%';
+    // box.style.width = '100%';
+    // box.style.alignItems = 'center';
+    // box.style.backgroundColor = color(valenceColor);
+
     var box = document.getElementById("box");
     box.style.display = 'block';
     box.style.height = '100%';
     box.style.width = '100%';
     box.style.alignItems = 'center';
     box.style.backgroundColor = color(valenceColor);
+
+    const elementsWithFurColor = document.querySelectorAll('.head, .body, .paw, .tail-segment');
+    elementsWithFurColor.forEach((element) => {
+        element.style.backgroundColor = color(furColors);
+    });
+
   }
 </script>
 
