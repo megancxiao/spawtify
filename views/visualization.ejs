@@ -313,6 +313,7 @@
         valenceColor = randomColor({luminosity:'dark'});
         valenceColorType = "dimmer";
     }
+    backgroundColor = color(valenceColor);
 
     // MODE -- eye color
     if (mode == 1) {
@@ -326,8 +327,9 @@
     }
 
     // FOR THE TOOLTIP
+    document.getElementById("valenceColorType").innerText = valenceColorType;
     document.getElementById("valenceColor").innerText = valenceColor.toString();
-    document.getElementById("valenceColor").style.color = backgroundColor1;
+    document.getElementById("valenceColor").style.color = backgroundColor;
     if (valence > 0.5)
       document.getElementById("valenceString").innerText = "happy or cheerful";
     else
@@ -373,6 +375,7 @@
     }
 
     // Background
+    var box = document.getElementById("box");
     box.style.backgroundColor = color(valenceColor);
   }
 </script>
