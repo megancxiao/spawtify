@@ -72,7 +72,7 @@
       <%= u %>
     </a><a>'s spawtify</a>
     <span class="tooltiptext">
-      <p>The <b>backgound</b> of your musicScape is a <a id="valenceColorType"></a> color (<a id="valenceColor"></a>) because you've recently listened to music that relates to <b id="valenceString"></b> emotions.</p>
+      <p>The <b>backgound</b> of your musicScape is a <a id="valenceColorType"></a> color because you've recently listened to music that relates to <b id="valenceString"></b> emotions.</p>
       <p>Your cat's <b id="eyes"></b> are a <a id="modeType"></a> color (<a id="modeColor"></a>) because your recent music is mostly in <b id="mode"></b> mode.</p>
       <p>Your cat is <a id="energy"></a> sleepy because you've listened to <b><a id="energy1"></a> energetic</b> songs.</p>
       <p>You've been <b><a id="listener"></a> listener</b> during the past 24 hours, so your cat has <a id="numToys"></a> toy.</p>
@@ -328,8 +328,7 @@
 
     // FOR THE TOOLTIP
     document.getElementById("valenceColorType").innerText = valenceColorType;
-    document.getElementById("valenceColor").innerText = valenceColor.toString();
-    document.getElementById("valenceColor").style.color = backgroundColor;
+    document.getElementById("valenceColorType").style.color = backgroundColor;
     if (valence > 0.5)
       document.getElementById("valenceString").innerText = "happy or cheerful";
     else
@@ -376,6 +375,10 @@
 
     // Background
     var box = document.getElementById("box");
+    box.style.display = block;
+    block.style.height = '100%';
+    block.style.width = '100%';
+    block.style.alignItems = 'center';
     box.style.backgroundColor = color(valenceColor);
   }
 </script>
