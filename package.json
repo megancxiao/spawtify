@@ -7,8 +7,6 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
-    "predeploy" : "npm run build",
-    "deploy" : "gh-pages -d build",
     "body-parser": "~1.18.2",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
