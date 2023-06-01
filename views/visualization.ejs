@@ -8,6 +8,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/addons/p5.dom.min.js"></script>
 
   <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Schoolbell" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
 
   <title>
@@ -17,233 +18,217 @@
 </head>
 
 <body>
-  <div id="box">
-    <div class="cat">
-      <div class="head">
-        <div class="ears">
-          <div class="ear left"></div>
-          <div class="ear right"></div>
-        </div>
-        <div class="eyes">
-          <div class="eye left"></div>
-          <div class="eye right"></div>
-        </div>
-        <div class="muzzle">
-          <div class="nose"></div>
-        </div>
-      </div>
-      <div class="body">
-        <div class="paw"></div>
-      </div>
-      <div class="tail">
-        <div class="tail-segment">
-          <div class="tail-segment">
-            <div class="tail-segment">
-              <div class="tail-segment">
-                <div class="tail-segment">
-                  <div class="tail-segment">
-                     <div class="tail-segment">
-                      <div class="tail-segment">
-                        <div class="tail-segment">
-                          <div class="tail-segment">
-                            <div class="tail-segment">
-                              <div class="tail-segment">
-                                <div class="tail-segment">
-                                  <div class="tail-segment">
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+    <!--  -->
+    <div class="container">
+        <div class="cat">
+            <div class="face">
+                <div class="ear-l">
+                        <div class="inner1"></div>
                 </div>
-              </div>
+                <div class="ear-r">
+                    <div class="inner2"></div>
+                </div>
+                <div class="eye-l">
+                    <div class="eyeball"></div>
+                </div>
+                <div class="eye-r">
+                    <div class="eyeball"></div>
+                </div>
+                <div class="nose">
+                    <div class="l1"></div>
+                    <div class="l2"></div>
+                </div>
             </div>
-          </div>
+            <div class="body">
+                <div class="paw-l"></div>
+                <div class="paw-r"></div>
+                <div class="tail"></div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
-  <div class="t1">
+
+    <!-- user -->
+    <div class="t1">
     <a id="username">
-      <%= u %>
+        <%= u %>
     </a><a>'s spawtify</a>
     <span class="tooltiptext">
-      <p>The <b>backgound</b> of your musicScape is a <a id="valenceColorType"></a> color because you've recently listened to music that relates to <b id="valenceString"></b> emotions.</p>
-      <p>Your cat's <b>eyes</b> are a <a id="modeType"></a> color because your recent music is mostly in <b id="mode"></b> mode.</p>
-      <p>Your cat is <b><a id="energy"></a> sleepy</b> because you've listened to <b><a id="energy1"></a> energetic</b> songs.</p>
-      <p>You've been <b><a id="listener"></a> listener</b> during the past 24 hours, so your cat has <a id="numToys"></a> toy(s).</p>
-      <p>The cat's <b>fur</b> are tones of <a id="keyColor"></a> because your songs are mostly in the <b>key</b> <a id="keyName"><a>.</p>
+        <p>The <b>backgound</b> of your musicScape is a <a id="valenceColorType"></a> color because you've recently listened to music that relates to <b id="valenceString"></b> emotions.</p>
+        <p>Your cat's <b>eyes</b> are a <a id="modeType"></a> color because your recent music is mostly in <b id="mode"></b> mode.</p>
+        <p>Your cat is <b><a id="energy"></a> sleepy</b> because you've listened to <b><a id="energy1"></a> energetic</b> songs.</p>
+        <p>You've been <b><a id="listener"></a> listener</b> during the past 24 hours, so your cat has <a id="numToys"></a> toy(s).</p>
+        <p>Your cat's <b>fur</b> is a <a id="keyColor"></a> color because your songs are mostly in the <b>key</b> <a id="keyName"><a>.</p>
     </span>
-  </div>
+    </div>
 <!-- </body> -->
 
 <style>
 
-    /* #box {
-      display: block;
-      height: 100%;
-      width: 100%;
-      align-items : center;
-    } */
-    /* .cat * {
-      text-align: center;
-      margin-left: auto;
-      margin-right: auto;
-    } */
-    .cat, .ears, .eyes, .muzzle, .body, .paw, .tail, .tail-segment {position: relative;}
-    /* .head, .body, .paw, .tail-segment {background-color: #000000;} */
-    .left {float: left;}
-    .right {float: right;}
-    .cat {
-      margin-top: 50px;
-      animation: purr 5s infinite cubic-bezier(0,.75,1,.25);
-    }
-    /* .head {
-      width: 100px;
-      height: 90px;
-      border-radius: 50%;
-      z-index: 100;
-      animation: head-bob 5s infinite ease-in-out;
-    } */
-    .ears {
-      top: -20px;
-      z-index: -100;
-    }
-    .ear {
-      width: 0;
-      height: 0;
-      border-left: 25px solid transparent;
-      border-right: 25px solid transparent;
-      border-bottom: 50px solid #000000;
-    }
-    .ear.left {
-      transform: rotate(-20deg) translateX(-10px);
-    }
-    .ear.right {
-      transform: rotate(20deg) translateX(10px);
-    }
-    .eyes {
-      top: -18px;
-      width: 60%;
-    }
-    .eye {
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      background-color: #FFD700;
-      animation: eye-blink 5s infinite;
-      text-align: center;
-    }
+body {
+    padding: 0;
+    margin: 0;
+    background-color: var(--bg-color);
+}
+
+.container {
+    height: 500px;
+    width: 350px;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+}
+
+.cat {
+    position: relative;
+    top: 150px;
+    left: 50px;
+}
+
+.face {
+    background-color: var(--fur-color);
+    height: 90px;
+    width: 150px;
+    border-radius: 40%;
+}
+
+.ear-l,.ear-r {
+    width: 0;
+    height: 0;
+    border-bottom: 50px solid var(--fur-color);
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    position: relative;
+    z-index: -1;
+}
+
+.ear-l {
+    bottom: 35px;
+    transform: rotate(-30deg);
+}
+
+.ear-r {
+    bottom: 85px;
+    left: 110px;
+    transform: rotate(30deg);
+}
+
+.inner1 {
+    width: 0;
+    height: 0;
+    border-bottom: 50px solid var(--eye-color);
+    border-left: 25px solid transparent;
+    right: 25px;
+    position: relative;
+}
+
+.inner2 {
+    width: 0;
+    height: 0;
+    border-bottom: 50px solid var(--eye-color);
+    border-right: 25px solid transparent;
+    position: relative;
+}
+
+.eye-l,.eye-r {
+    background-color: var(--eye-color);
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    position: relative;
+}
+
+.eye-l {
+    bottom: 75px;
+    left: 30px;
+}
+
+.eye-r {
+    bottom: 105px;
+    left: 90px;
+}
+
+.eyeball {
+    background-color: #332928;
+    height: 22px;
+    width: 22px;
+    border-radius: 50%;
+    position: relative;
+    top: 4px;
+    left: 4px;
+}
+
+.nose {
+    height: 0;
+    width: 0;
+    border-top: 8px solid var(--eye-color);
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    position: relative;
+    bottom: 110px;
+    left: 68px;
+}
+
+.l1,.l2 {
+    background-color: var(--eye-color);
+    height: 8px;
+    width: 2px;
+    position: relative;
+}
+
+.l1 {
+    transform: rotate(45deg);
+    right: 4px;
+    bottom: 2px;
+}
+
+.l2 {
+    transform: rotate(-45deg);
+    bottom: 10.5px;
+    left: 2.5px;
+}
+
+.body {
+    background-color: var(--fur-color);
+    height: 120px;
+    width: 130px;
+    position: relative;
+    left: 30px;
+    bottom: 5px;
+    border-radius: 0 65px 0 0;
+}
+
+.paw-l,.paw-r {
+    background-color: var(--fur-color);
+    height: 10px;
+    width: 22px;
+    position: relative;
+    border-radius: 0 0px 10px 10px;
+}
+
+.paw-l {
+    top: 120px;
+}
+
+.paw-r {
+    top: 110px;
+    left: 50px;
+}
+
+.tail {
+    background-color: var(--fur-color);
+    width: 100px;
+    height: 20px;
+    position: relative;
+    top: 80px;
+    left: 100px;
+    border-radius: 0 20px 20px 0;
+}
     
-    .muzzle {
-      top: 50px;
-    }
-    .nose {
-      width: 0;
-      height: 0;
-      border-left: 10px solid transparent;
-      border-right: 10px solid transparent;
-      border-top: 10px solid #666666;
-    }
-    .body {
-      width: 200px;
-      height: 120px;
-      border-top-left-radius: 200px;
-      border-top-right-radius: 200px;
-      top: -75px;
-      left: 90px;
-      z-index: -10;
-    }
-    .paw {
-      height: 30px;
-      width: 50px;
-      border-radius: 25px;
-      left: -100px;
-      top: 90px;
-    }
-    .tail {
-      left: 180px;
-      top: -100px;
-      transform: rotate(90deg);
-      
-    }
-    
-    .tail-segment {
-      height: 20px;
-      width: 30px;
-      border-radius: 25px;
-      top: 0px;
-      left: 10px;
-      /*transform: rotate(10deg);*/
-      animation: tail-swish 5s infinite cubic-bezier(.8,0,.2,1);
-    }
-    
-    @keyframes tail-swish {
-      0% {transform: rotate(12deg);}
-      10% {transform: rotate(12deg);}
-      40% {transform: rotate(-5deg);}
-      50% {transform: rotate(5deg);}
-      60% {transform: rotate(-5deg);}
-      100% {transform: rotate(12deg);}
-    }
-    
-    @keyframes head-bob {
-      0% {transform: translateX(-15px) translateY(45px);}
-      10% {transform: translateX(-15px) translateY(45px);}
-      30% {transform: translateX(0) translateY(0);}
-      75% {transform: translateX(0) translateY(0);}
-      90% {transform: translateX(-15px) translateY(45px);}
-      100% {transform: translateX(-15px) translateY(45px);}
-    }
-    
-    @keyframes eye-blink {
-      0% {transform: scaleY(0);}
-      10% {transform: scaleY(0);}
-      15% {transform: scaleY(1);}
-      48% {transform: scaleY(1);}
-      50% {transform: scaleY(0);}
-      52% {transform: scaleY(1);}
-      90% {transform: scaleY(1);}
-      95% {transform: scaleY(0);} 
-      100% {transform: scaleY(0);}  
-    }
-    
-    @keyframes purr {
-      0% {left: -1px;}
-      1% {left: 0px;}
-      2% {left: -1px;}
-      3% {left: 0px;}
-      4% {left: -1px;}
-      5% {left: 0px;}
-      6% {left: -1px;}
-      7% {left: 0px;}
-      8% {left: -1px;}
-      9% {left: 0px;}
-      10% {left: -1px;}
-      11% {left: 0px;}
-      12% {left: -1px;}
-      13% {left: 0px;}
-      14% {left: -1px;}
-      15% {left: 0px;}
-      16% {left: -1px;}
-      17% {left: 0px;}
-      18% {left: -1px;}
-      19% {left: 0px;}
-      20% {left: -1px;}
-      21% {left: 0px;}
-      94% {left: 0px;}
-      95% {left: -1px;}
-      96% {left: 0px;}
-      97% {left: -1px;}
-      98% {left: 0px;}
-      99% {left: -1px;}
-      100% {left: 0px;}
-    }
-    </style>
+</style>
 
 <script>
   // Fade in on start
@@ -272,30 +257,14 @@
 
   //////////////////////////////////////
 
-  //var musicHues = ['monochrome', 'blue', 'green', 'purple', 'pink', 'red', 'orange', 'yellow'];
-//   var musicKHues = ['yellow', 'yellow', 'orange', 'red', 'red', 'pink', 'pink', 'purple', 'blue', 'blue', 'green', 'green'];
-//   var musicLums = ['light', 'bright', 'bright', 'bright', 'light', 'bright', 'light', 'bright', 'bright', 'light', 'bright', 'light'];
-//   var keyNames = ["C", "C♯/D♭", "D", "D♯/E♭", "E", "F", "F♯/G♭", "G", "G♯/A♭", "A", "A♯/B♭", "B"];
-
-  var sunColors = [];
-  var sunSize;
-  var sunRange;
-  var sunPos;
-
-  var landColors;
-
-  var backgroundColor1;
-  var backgroundColor2;
-
-  /// 
-
   var valenceColor;
   var valenceColorType;
   var modeType;
   var modeColor;
-  var musicHues = ['monochrome', 'blue', 'green', 'purple', 'pink', 'red', 'orange', 'yellow'];
-  var musicKHues = ['yellow', 'yellow', 'orange', 'red', 'red', 'pink', 'pink', 'purple', 'blue', 'blue', 'green', 'green'];
-  var musicLums = ['light', 'bright', 'bright', 'bright', 'light', 'bright', 'light', 'bright', 'bright', 'light', 'bright', 'light'];
+  var musicHues = ['darkseagreen', 'blue', 'green', 'purple', 'fuschia', 'indianred', 'orange', 'yellow'];
+ 
+  var musicKHues = ['thistle', 'silver', 'black', 'white', 'wheat', 'powderblue', 'orange', 'olive', 'lavendar', 'gold', 'lightgoldenrodyellow', 'gray']; 
+
   var keyNames = ["C", "C♯/D♭", "D", "D♯/E♭", "E", "F", "F♯/G♭", "G", "G♯/A♭", "A", "A♯/B♭", "B"];
   var furColors;
   var backgroundColor;
@@ -348,19 +317,12 @@
 
     // KEY --- fur colors
     var currentHue = musicKHues[musicKey];
-    var currentLum = musicLums[musicKey];
 
-    furColors = randomColor({
-      hue: currentHue,
-      luminosity: currentLum,
-      count: 5,
-      format: 'rgba',
-      alpha: 0.5
-    });
+    furColors = color(currentHue)
 
     // FOR THE TOOLTIP
-    document.getElementById("keyColor").innerText = currentLum.toString() + " " + currentHue.toString();
-    document.getElementById("keyColor").style.color = furColors[0];
+    document.getElementById("keyColor").innerText = currentHue.toString();
+    document.getElementById("keyColor").style.color = furColors;
     document.getElementById("keyName").innerText = keyNames[musicKey];
 
     // LISTENS PER HOUR --- number of toys
@@ -378,29 +340,10 @@
     }
 
     // Background
-    var box = document.getElementById("box");
-    box.style.display = 'block';
-    box.style.height = '100%';
-    box.style.width = '100%';
-    box.style.alignItems = 'center';
-    box.style.backgroundColor = color(valenceColor);
-
-    var head = document.getElementById("head");
-    head.style.backgroundColor = color(furColors);
-    head.style. width = '100px';
-    head.style.height = '90px';
-    head.style.borderRadius = '50%';
-    head.style.zIndex = '100';
-    head.style.animation = 'head-bob 5s infinite ease-in-out';
-
-    var ears = document.getElementById("ears");
-    ears.style.backgroundColor = color(furColors);
-
-    var body = document.getElementById("body");
-    body.style.backgroundColor = color(furColors);
-
-    var tail = document.getElementById("tail");
-    tail.style.backgroundColor = color(furColors);
+    document.documentElement.style.setProperty('--bg-color', valenceColor);
+    document.documentElement.style.setProperty('--fur-color', furColors);
+    document.documentElement.style.setProperty('--eye-color', modeColor);
+    
 
   }
 </script>

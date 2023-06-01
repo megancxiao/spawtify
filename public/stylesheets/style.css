@@ -6,10 +6,10 @@ html, body {
 /* Title and Tooltip container */
 
 .t1 {
-  font-family: 'Work Sans', sans-serif;
+  font-family: 'Schoolbell', sans-serif;
   text-align: center;
-  margin-top: 80vh;
-  color: #a0a0a0;
+  margin-top: 75vh;
+  color: black;
   font-size: 2em;
   cursor: pointer;
 }
