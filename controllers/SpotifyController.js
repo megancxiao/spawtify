@@ -4,9 +4,9 @@
 var SpotifyWebApi = require('spotify-web-api-node');
 var querystring = require('querystring');
 
-var client_id = '635f68b238e24dd1bf0a5a99e0a9c808';
-var client_secret = 'c7b5d6486f764d869237602537bcad17';
-var redirect_uri = 'http://spawtify.herokuapp.com/callback';
+var client_id = process.env.CLIENT_ID;
+var client_secret = process.env.CLIENT_SECRET;
+var redirect_uri = process.env.REDIRECT_URI;
 // when not local change to: http://spawtify.herokuapp.com/callback
 // when local: http://localhost:8000/callback
 var stateKey = 'spotify_auth_state';
