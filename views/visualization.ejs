@@ -37,6 +37,8 @@
                 <div class="nose">
                     <div class="l1"></div>
                     <div class="l2"></div>
+                    <div class="l3"></div>
+                    <div class="l4"></div>
                 </div>
             </div>
             <div class="body">
@@ -53,10 +55,10 @@
         <%= u %>
     </a><a>'s spawtify</a>
     <span class="tooltiptext">
-        <p>The <b>backgound</b> of your musicScape is a <a id="valenceColorType"></a> color because you've recently listened to music that relates to <b id="valenceString"></b> emotions.</p>
+        <p>Your cat is <b><a id="valenceType"></a></b> because you've recently listened to music that relates to <b id="valenceString"></b> emotions.</p>
         <p>Your cat's <b>eyes</b> are a <a id="modeType"></a> color because your recent music is mostly in the <b id="mode"></b> key.</p>
-        <p>Your cat is <b><a id="energy"></a> sleepy</b> because you've listened to <b><a id="energy1"></a> energetic</b> songs.</p>
-        <p>You've been <b><a id="listener"></a> listener</b> during the past 24 hours, so your cat has <a id="numToys"></a> toy(s).</p>
+        <p>The background of your cat is a <b><a id="energy"></a></b> color because you've listened to <b><a id="energy1"></a> energetic</b> songs.</p>
+        <p>You've been <b><a id="listener"></a> listener</b> during the past 24 hours, so your cat has <b><a id="numToys"></a></b> toy(s).</p>
         <p>Your cat's <b>fur</b> is a <a id="keyColor"></a> color because your songs are mostly in the <b>key</b> <a id="keyName"><a>.</p>
     </span>
     </div>
@@ -173,7 +175,7 @@ body {
 }
 
 .l1,.l2 {
-    background-color: var(--eye-color);
+		background-color: var(--frown-color);
     height: 8px;
     width: 2px;
     position: relative;
@@ -190,6 +192,25 @@ body {
     transform: rotate(-45deg);
     bottom: 10.5px;
     left: 2.5px;
+}
+
+.l3,.l4 {
+  background-color: transparent;
+  height: 7px;
+  width: 12px;
+  position: relative;
+  border-radius: 100%;
+  border-bottom:solid 3px var(--smile-color);
+}
+
+.l3 {
+  right: 11px;
+  bottom: 24px;
+}
+
+.l4 {
+  bottom: 34px;
+  left: -1px;
 }
 
 .body {
@@ -257,62 +278,67 @@ body {
 
 
   //////////////////////////////////////
+  var valenceType;
 
-  var valenceColor;
-  var valenceColorType;
+	var smileColor;
+	var frownColor;
+
+
   var modeType;
   var modeColor;
-  var musicHues = ['darkseagreen', 'blue', 'green', 'purple', 'fuschia', 'indianred', 'orange', 'yellow'];
- 
+  var musicWarmHues = ['maroon', 'brown', 'chocolate', 'coral', 'darkorange', 'darkred', 'darksalmon', 'deeppink', 'fuschia', 'hotpink', 'magenta', 'mediumvioletred', 'palevioletred', 'orange', 'yellow'];
+	var musicDarkHues = ['green', 'navy', 'teal', 'aqua', 'blue', 'blueviolet', 'cadetblue', 'cornflowerblue', 'darkblue', 'darkcyan', 'darkgreen', 'darkolivegreen', 'darkslateblue', 'darkslategray', 'deepskyblue', 'dodgerblue', 'forestgreen', 'indigo', 'navy', 'royalblue', 'slateblue'];
   var musicKHues = ['thistle', 'silver', 'black', 'white', 'wheat', 'powderblue', 'orange', 'olive', 'lavendar', 'gold', 'lightgoldenrodyellow', 'gray']; 
 
   var keyNames = ["C", "C♯/D♭", "D", "D♯/E♭", "E", "F", "F♯/G♭", "G", "G♯/A♭", "A", "A♯/B♭", "B"];
   var furColors;
-  var backgroundColor;
 
   /////////////////////////////////////
 
 
   function setup() {
 
-    // VALENCE -- background color
-    if (valence > 0.5) {
-        valenceColor = randomColor({luminosity:'bright'});
-        valenceColorType = "brighter";
-    } else {
-        valenceColor = randomColor({luminosity:'dark'});
-        valenceColorType = "dimmer";
-    }
-    backgroundColor = color(valenceColor);
-
     // MODE -- eye color
     if (mode == 1) {
       // Major mode --- warmer toned
       modeType = "warmer-toned";
-      modeColor = musicHues[(Math.floor(Math.random() * (7 - 4 + 1)) + 4)];
+      modeColor = musicWarmHues[Math.floor(Math.random()*musicWarmHues.length)];
       document.getElementById("modeType").innerText = modeType;
       document.getElementById("mode").innerText = "major";
     } else if (mode == 0) {
       // Minor mode --- cooler toned
       modeType = "cooler-toned";
-      modeColor = musicHues[(Math.floor(Math.random() * (3 - 0 + 1)) + 0)];
+      modeColor = musicCoolHues[(Math.floor(Math.random() * (3 - 0 + 1)) + 0)];
       document.getElementById("modeType").innerText = modeType;
       document.getElementById("mode").innerText = "minor";
     }
 
+		// VALENCE -- mouth type
+		if (valence > 0.5) {
+        smileColor = modeColor;
+				frownColor = "transparent";
+        valenceType = "smiling";
+    } else {
+        smileColor = "transparent";
+				frownColor = modeColor;
+        valenceType = "frowning";
+    }
+
     // FOR THE TOOLTIP
-    document.getElementById("valenceColorType").innerText = valenceColorType;
-    document.getElementById("valenceColorType").style.color = backgroundColor;
+    document.getElementById("valenceType").innerText = valenceType;
     if (valence > 0.5)
       document.getElementById("valenceString").innerText = "happy or cheerful";
     else
       document.getElementById("valenceString").innerText = "sad or angry";
 
+		// ENERGY --- background color
     if (energy > 0.5) {
-      document.getElementById("energy").innerText = "less";
+			bkgdColor = randomColor({luminosity:'bright'});
+      document.getElementById("energy").innerText = "brighter";
       document.getElementById("energy1").innerText = "more";
     } else {
-      document.getElementById("energy").innerText = "more";
+			bkgdColor= randomColor({luminosity:'dark'});
+      document.getElementById("energy").innerText = "dimmer";
       document.getElementById("energy1").innerText = "less";
     }
 
@@ -341,7 +367,9 @@ body {
     }
 
     // Background
-    document.documentElement.style.setProperty('--bg-color', valenceColor);
+    document.documentElement.style.setProperty('--bg-color', bkgdColor);
+		document.documentElement.style.setProperty('--smile-color', smileColor);
+		document.documentElement.style.setProperty('--frown-color', frownColor);
     document.documentElement.style.setProperty('--fur-color', furColors);
     document.documentElement.style.setProperty('--eye-color', modeColor);
     
