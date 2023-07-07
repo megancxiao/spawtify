@@ -27,10 +27,11 @@ html, body {
 @media only screen and (max-device-width: 768px) {
   /* For mobile phones: */
   .t1 {
-    font-size: 3em;
+    margin-top: 45vh;
+    font-size: 3.5em;
   }
   .t6 {
-    font-size: 1em;
+    font-size: 0.8em;
   }
 }
 
@@ -125,7 +126,7 @@ canvas {
   border-radius: 6px;
   font-size: 1em;
   text-align: center;
-  bottom: 20%;
+  bottom: 27%;
   position: absolute;
   z-index: 1;
   left: 80%;
@@ -139,7 +140,8 @@ canvas {
   /* For mobile phones: */
   .t6 .tooltiptext {
     font-size: 0.5em;
-    margin-left: -40%;
+    margin-left: -71%;
+    margin-bottom: -10em;
     width: 80%;
   }
 }

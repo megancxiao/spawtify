@@ -6,11 +6,11 @@ var spotifyController = require('../controllers/SpotifyController')
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', {
-    title: 'spawtify'
+    title: 'cattify'
   });
 });
 
-router.get('/spawtify', function(req, res, next) {
+router.get('/cattify', function(req, res, next) {
 
   // this is an JSON obj that contains the avg of the song features
   var obj = req.session.obj;
@@ -19,7 +19,7 @@ router.get('/spawtify', function(req, res, next) {
   // this is userName
   var user = req.session.user;
   res.render('visualization', {
-    title: 'spawtify',
+    title: 'cattify',
     d: obj,
     t: landscapeSize,
     u: user

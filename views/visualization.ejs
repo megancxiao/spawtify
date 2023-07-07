@@ -55,11 +55,11 @@
     </div>
 
     <!-- user -->
-    <div class="t1">
-    <a id="username">
+    <div class="t1" style="color:var(--ball1-color);">
+    <a id="username" color>
         <%= u %>
-    </a><a>'s spawtify</a>
-    <div class="t6">ⓘ
+    </a><a>'s cattify</a>
+    <div class="t6" style="color:var(--ball1-color);">ⓘ
     <span class="tooltiptext">
         <p>Your cat is <b><a id="valenceType"></a></b> because you've recently listened to music that relates to <b id="valenceString"></b> emotions.</p>
         <p>Your cat's <b>eyes</b> are a <b><a id="modeType"></a></b> color because your recent music is mostly in the <b id="mode"></b> key.</p>
@@ -89,6 +89,13 @@ body {
     left: 0;
     right: 0;
     z-index: -1;
+}
+
+@media only screen and (max-device-width: 768px) {
+  /* For mobile phones: */
+  .container {
+    bottom: 25%;
+  }
 }
 
 .cat {

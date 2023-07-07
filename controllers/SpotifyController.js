@@ -8,7 +8,7 @@ var client_id = process.env.CLIENT_ID;
 var client_secret = process.env.CLIENT_SECRET;
 var redirect_uri = process.env.REDIRECT_URI;
 // when not local change to: http://spawtify.herokuapp.com/callback
-// when local: http://localhost:8000/callback
+// when local: http://localhost:3000/callback
 var stateKey = 'spotify_auth_state';
 
 
@@ -116,7 +116,7 @@ module.exports.spotifyCallback = function (req, res) {
                     liveness: liveness / data.body.audio_features.length
                 };
                 req.session.obj = obj;
-                res.redirect('/spawtify');
+                res.redirect('/cattify');
             });
         });
         req.session.user = data.body.display_name;
