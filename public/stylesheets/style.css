@@ -11,13 +11,26 @@ html, body {
   margin-top: 75vh;
   color: black;
   font-size: 2em;
+}
+
+.t6 {
+  display:inline;
+  font-family: 'Schoolbell', sans-serif;
+  text-align: center;
+  vertical-align: super;
+  color: black;
+  font-size: 0.5em;
   cursor: pointer;
+  font-weight: bold;
 }
 
 @media only screen and (max-device-width: 768px) {
   /* For mobile phones: */
   .t1 {
     font-size: 3em;
+  }
+  .t6 {
+    font-size: 1em;
   }
 }
 
@@ -101,7 +114,7 @@ canvas {
 
 /* Tooltip text */
 
-.t1 .tooltiptext {
+.t6 .tooltiptext {
   font-family: 'Roboto', sans-serif;
   visibility: hidden;
   background-color: #f7f7f7;
@@ -110,19 +123,21 @@ canvas {
   text-align: center;
   padding: 0.5em 0.5em;
   border-radius: 6px;
-  font-size: 0.35em;
+  font-size: 1em;
   text-align: center;
   bottom: 20%;
   position: absolute;
   z-index: 1;
-  left: 50%;
+  left: 80%;
   margin-left: -15%;
   width: 30%;
+  font-weight:lighter;
+  
 }
 
 @media only screen and (max-device-width: 768px) {
   /* For mobile phones: */
-  .t1 .tooltiptext {
+  .t6 .tooltiptext {
     font-size: 0.5em;
     margin-left: -40%;
     width: 80%;
@@ -131,6 +146,6 @@ canvas {
 
 /* Show the tooltip text when you mouse over the tooltip container */
 
-.t1:hover .tooltiptext {
+.t6:hover .tooltiptext {
   visibility: visible;
 }

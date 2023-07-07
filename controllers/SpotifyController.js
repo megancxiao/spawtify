@@ -119,7 +119,7 @@ module.exports.spotifyCallback = function (req, res) {
                 res.redirect('/spawtify');
             });
         });
-        req.session.user = data.body.id.length > 10? data.body.display_name : data.body.id;
+        req.session.user = data.body.display_name;
     });
 };
 
