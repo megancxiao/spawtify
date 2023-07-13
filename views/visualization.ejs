@@ -48,18 +48,19 @@
             </div>
         </div>
         <div>
-          <div class="ball1"></div>
-          <div class="ball2"></div>
-          <div class="ball3"></div>
+          <div class="ball1"><img src="Spotify_Icon_RGB_Black.png"></div>
+          <div class="ball2"><img src="Spotify_Icon_RGB_Black.png"></div>
+          <div class="ball3"><img src="Spotify_Icon_RGB_Black.png"></div>
+          <div class="ball4"><img src="Spotify_Icon_RGB_Black.png"></div>
         </div>
     </div>
 
     <!-- user -->
-    <div class="t1" style="color:var(--ball1-color);">
+    <div class="t1" style="color:var(--opp-color);">
     <a id="username" color>
         <%= u %>
     </a><a>'s cattify</a>
-    <div class="t6" style="color:var(--ball1-color);">ⓘ
+    <div class="t6" style="color:var(--opp-color);">ⓘ
     <span class="tooltiptext">
         <p>Your cat is <b><a id="valenceType"></a></b> because you've recently listened to music that relates to <b id="valenceString"></b> emotions.</p>
         <p>Your cat's <b>eyes</b> are a <b><a id="modeType"></a></b> color because your recent music is mostly in the <b id="mode"></b> key.</p>
@@ -69,10 +70,32 @@
     </span>
     </div>
     </div>
+
+    <div>
+      <button class="b1" id="logOutButton">
+        <!-- <embed src="/logout.svg"> -->
+          <svg fill="currentColor" height="25px" width="25px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+          viewBox="0 0 490.3 490.3" xml:space="preserve">
+       <g>
+         <g>
+           <path d="M0,121.05v248.2c0,34.2,27.9,62.1,62.1,62.1h200.6c34.2,0,62.1-27.9,62.1-62.1v-40.2c0-6.8-5.5-12.3-12.3-12.3
+             s-12.3,5.5-12.3,12.3v40.2c0,20.7-16.9,37.6-37.6,37.6H62.1c-20.7,0-37.6-16.9-37.6-37.6v-248.2c0-20.7,16.9-37.6,37.6-37.6h200.6
+             c20.7,0,37.6,16.9,37.6,37.6v40.2c0,6.8,5.5,12.3,12.3,12.3s12.3-5.5,12.3-12.3v-40.2c0-34.2-27.9-62.1-62.1-62.1H62.1
+             C27.9,58.95,0,86.75,0,121.05z"/>
+           <path d="M385.4,337.65c2.4,2.4,5.5,3.6,8.7,3.6s6.3-1.2,8.7-3.6l83.9-83.9c4.8-4.8,4.8-12.5,0-17.3l-83.9-83.9
+             c-4.8-4.8-12.5-4.8-17.3,0s-4.8,12.5,0,17.3l63,63H218.6c-6.8,0-12.3,5.5-12.3,12.3c0,6.8,5.5,12.3,12.3,12.3h229.8l-63,63
+             C380.6,325.15,380.6,332.95,385.4,337.65z"/>
+         </g>
+       </g>
+       </svg> 
+      </button>
+    </div>
 <!-- </body> -->
 
 <style>
-
+svg {
+  color: var(--opp-color);
+}
 body {
     padding: 0;
     margin: 0;
@@ -264,22 +287,32 @@ body {
     border-radius: 0 20px 20px 0;
 }
 
-.ball1,.ball2,.ball3 {
+img {
+ max-width: 100%;
+ max-height: 100%;
+}
+
+.ball1,.ball2,.ball3,.ball4 {
     width: 30px;
     height: 30px;
     position: relative;
     top: 125px;
-    border-radius: 50%;
     display: inline-block;
+    background-color: white;
+    border-radius:50%;
 }
 .ball1 {
-    background-color: var(--ball1-color);
+  display: var(--ball1-disp);
 }
 .ball2 {
-    background-color: var(--ball2-color);
+  display: var(--ball2-disp);
 }
 .ball3 {
-    background-color: var(--ball3-color);
+  display: var(--ball3-disp);
+}
+.ball4 {
+  display: var(--ball4-disp);
+
 }
     
 </style>
@@ -300,6 +333,11 @@ body {
 
   var Y_AXIS = 1;
   var X_AXIS = 2;
+
+  // logout button
+  document.getElementById("logOutButton").onclick = function() {
+      window.location.href = '/logout';
+  };
 
   ////////// MUSIC VARIABLES ////////////
   var mode = '<%= d.mode %>';
@@ -324,9 +362,10 @@ body {
 
   var keyNames = ["C", "C♯/D♭", "D", "D♯/E♭", "E", "F", "F♯/G♭", "G", "G♯/A♭", "A", "A♯/B♭", "B"];
   var oppColor;
-  var ball1Color;
-  var ball2Color;
-  var ball3Color;
+  var ball1Disp;
+  var ball2Disp;
+  var ball3Disp;
+  var ball4Disp;
 
   /////////////////////////////////////
 
@@ -392,23 +431,24 @@ body {
 
     // LISTENS PER HOUR --- number of toys
     oppColor = invertColor(bkgdColor);
-    ball1Color = oppColor;
-    ball2Color = oppColor;
-    ball3Color = oppColor;
+    ball1Disp = "inline-block";
+    ball2Disp = "inline-block";
+    ball3Disp = "inline-block";
+    ball4Disp = "inline-block";
     if (toyN == 2) {
       toyN = 0;
-      ball2Color = "transparent";
-      ball3Color = "transparent";
+      ball3Disp = "none";
+      ball4Disp = "none";
       document.getElementById("listener").innerText = "a less active";
-      document.getElementById("numToys").innerText = "one";
+      document.getElementById("numToys").innerText = "two";
     } else if (toyN == 0) {
       toyN = 2;
       document.getElementById("listener").innerText = "a very active";
-      document.getElementById("numToys").innerText = "three";
+      document.getElementById("numToys").innerText = "four";
     } else if (toyN == 1) {
-      ball3Color = "transparent";
+      ball3Disp = "none";
       document.getElementById("listener").innerText = "an active";
-      document.getElementById("numToys").innerText = "two";
+      document.getElementById("numToys").innerText = "three";
     }
 
     // Background
@@ -417,9 +457,11 @@ body {
 		document.documentElement.style.setProperty('--frown-color', frownColor);
     document.documentElement.style.setProperty('--fur-color', currentHue);
     document.documentElement.style.setProperty('--eye-color', modeColor);
-    document.documentElement.style.setProperty('--ball1-color', ball1Color);
-    document.documentElement.style.setProperty('--ball2-color', ball2Color);
-    document.documentElement.style.setProperty('--ball3-color', ball3Color);
+    document.documentElement.style.setProperty('--ball1-disp', ball1Disp);
+    document.documentElement.style.setProperty('--ball2-disp', ball2Disp);
+    document.documentElement.style.setProperty('--ball3-disp', ball3Disp);
+    document.documentElement.style.setProperty('--ball4-disp', ball4Disp);
+    document.documentElement.style.setProperty('--opp-color', oppColor);
     
 
   }

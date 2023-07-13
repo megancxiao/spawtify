@@ -1,6 +1,3 @@
-/**
- * Created by Stefan Aleksik on 05.1.2018.
- */
 var SpotifyWebApi = require('spotify-web-api-node');
 var querystring = require('querystring');
 
@@ -24,9 +21,21 @@ module.exports.spotifyLogin = function (res) {
             client_id: client_id,
             scope: scope,
             redirect_uri: redirect_uri,
-            state: state
+            state: state,
+            show_dialog: true
         }));
 };
+
+//Spotify Logout
+module.exports.spotifyLogout = function (res) {
+    // var state = generateRandomString(16);
+    // res.cookie(stateKey, state);
+    // your application requests authorization
+    //var scope = 'user-read-email user-read-recently-played';
+    res.redirect('http://accounts.spotify.com/logout');
+};
+
+
 
 function generateRandomString(length) {
     var text = '';

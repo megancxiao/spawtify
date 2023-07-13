@@ -28,11 +28,15 @@ router.get('/cattify', function(req, res, next) {
 });
 
 router.get('/callback', function(req, res) {
-spotifyController.spotifyCallback(req, res)
+  spotifyController.spotifyCallback(req, res)
 });
 
 router.get('/login', function(req, res) {
-    spotifyController.spotifyLogin(res);
+  spotifyController.spotifyLogin(res);
+});
+
+router.get('/logout', function(req, res) {
+  spotifyController.spotifyLogout(res);
 });
 
 module.exports = router;

@@ -120,7 +120,8 @@ canvas {
   visibility: hidden;
   background-color: #f7f7f7;
   opacity: 0.9;
-  color: #a0a0a0;
+  /* color: #a0a0a0; */
+  color:black;
   text-align: center;
   padding: 0.5em 0.5em;
   border-radius: 6px;
@@ -151,3 +152,32 @@ canvas {
 .t6:hover .tooltiptext {
   visibility: visible;
 }
+
+svg {
+  color: var(--opp-color);
+}
+
+.b1 {
+  background-color:var(--bg-color); 
+  border:none;
+  cursor:pointer;
+  margin-left: 101em;
+  margin-top: 2.9em;
+}
+
+@media only screen and (max-device-width: 768px) {
+  /* For mobile phones: */
+  .b1 {
+    background-color:var(--bg-color); 
+    border:none;
+    height: 40px;
+    margin-left: 50em;
+    margin-top: 2em;
+  }
+  svg {
+    height: 100px;
+    width: 100px;
+  }
+}
+
+
