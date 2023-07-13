@@ -29,10 +29,6 @@ module.exports.spotifyLogin = function (res) {
 
 //Spotify Logout
 module.exports.spotifyLogout = function (res) {
-    // var state = generateRandomString(16);
-    // res.cookie(stateKey, state);
-    // your application requests authorization
-    //var scope = 'user-read-email user-read-recently-played';
     res.redirect('http://accounts.spotify.com/logout');
 };
 
