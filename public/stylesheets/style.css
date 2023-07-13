@@ -142,7 +142,7 @@ canvas {
   .t6 .tooltiptext {
     font-size: 0.5em;
     margin-left: -71%;
-    margin-bottom: -10em;
+    margin-bottom: -12em;
     width: 80%;
   }
 }
@@ -171,8 +171,8 @@ svg {
     background-color:var(--bg-color); 
     border:none;
     height: 40px;
-    margin-left: 50em;
-    margin-top: 2em;
+    margin-left: 40em;
+    margin-top: 15%;
   }
   svg {
     height: 100px;
