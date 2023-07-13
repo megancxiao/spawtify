@@ -18,6 +18,8 @@ router.get('/cattify', function(req, res, next) {
   var landscapeSize = req.session.timeDiff;
   // this is userName
   var user = req.session.user;
+  console.log("object", obj);
+
   res.render('visualization', {
     title: 'cattify',
     d: obj,
@@ -32,6 +34,7 @@ router.get('/callback', function(req, res) {
 });
 
 router.get('/login', function(req, res) {
+  //console.log('Test', req, res);
   spotifyController.spotifyLogin(res);
 });
 

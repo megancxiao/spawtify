@@ -15,6 +15,7 @@ module.exports.spotifyLogin = function (res) {
     res.cookie(stateKey, state);
     // your application requests authorization
     var scope = 'user-read-email user-read-recently-played';
+    // console.log("hi2",res);
     res.redirect('https://accounts.spotify.com/authorize?' +
         querystring.stringify({
             response_type: 'code',
@@ -124,6 +125,7 @@ module.exports.spotifyCallback = function (req, res) {
                     instrumentalness: instrumentalness / data.body.audio_features.length,
                     liveness: liveness / data.body.audio_features.length
                 };
+                // console.log("object", obj);
                 req.session.obj = obj;
                 res.redirect('/cattify');
             });

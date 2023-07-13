@@ -340,6 +340,7 @@ img {
   };
 
   ////////// MUSIC VARIABLES ////////////
+  console.log("d:", '<%= JSON.stringify(d) %>')
   var mode = '<%= d.mode %>';
   var valence = '<%= d.valence %>';
   var energy = '<%= d.energy %>';
@@ -357,7 +358,7 @@ img {
   var modeType;
   var modeColor;
   var musicWarmHues = ['brown', 'chocolate', 'coral', 'darkorange', 'darksalmon', 'deeppink', 'hotpink', 'magenta', 'yellow'];
-	var musicDarkHues = ['green', 'navy', 'teal', 'aqua', 'blue', 'cadetblue', 'cornflowerblue', 'darkblue', 'darkcyan', 'darkgreen', 'indigo', 'navy', 'royalblue', 'slateblue'];
+	var musicCoolHues = ['green', 'navy', 'teal', 'aqua', 'blue', 'cadetblue', 'cornflowerblue', 'darkblue', 'darkcyan', 'darkgreen', 'indigo', 'navy', 'royalblue', 'slateblue'];
   var musicKHues = ['thistle', 'silver', 'black', 'white', 'wheat', 'powderblue', 'tan', 'lavenderblush', 'lavender', 'gold', 'lightgoldenrodyellow', 'gray']; 
 
   var keyNames = ["C", "C♯/D♭", "D", "D♯/E♭", "E", "F", "F♯/G♭", "G", "G♯/A♭", "A", "A♯/B♭", "B"];
@@ -371,7 +372,7 @@ img {
 
 
   function setup() {
-
+    
     // MODE -- eye color
     if (mode == 1) {
       // Major mode --- warmer toned
